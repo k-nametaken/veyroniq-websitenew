@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
-
   const [loading, setLoading] = React.useState(false);
   const [formData, setFormData] = React.useState({
     name: '', email: '', business: '', industry: '', invoices: '', message: ''
@@ -37,8 +36,8 @@ export default function Contact() {
         </div>
 
         <div className="mb-10 relative z-10">
-          <h2 className="font-heading font-extrabold text-4xl md:text-5xl text-glacier mb-4 tracking-tight">Let’s find what you’re owed.</h2>
-          <p className="font-body text-slate text-lg">Tell us about your business and we’ll be in touch within 24 hours.</p>
+          <h2 className="font-heading font-extrabold text-4xl md:text-5xl text-glacier mb-4 tracking-tight">Let's find what you're owed.</h2>
+          <p className="font-body text-slate text-lg">Tell us about your business and we'll be in touch within 24 hours.</p>
         </div>
 
         {submitted ? (
@@ -49,7 +48,7 @@ export default function Contact() {
               </svg>
             </div>
             <h3 className="font-heading font-bold text-2xl text-glacier mb-2">Request Received</h3>
-            <p className="font-body text-slate">Thanks — we’ll review your details and be in touch within 24 hours.</p>
+            <p className="font-body text-slate">Thanks — we'll review your details and be in touch within 24 hours.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-6 relative z-10">
@@ -83,7 +82,7 @@ export default function Contact() {
               </div>
               <div className="flex flex-col gap-2">
                 <label className="font-data text-xs uppercase tracking-widest text-slate">Invoices per month *</label>
-                <select required name="industry" onChange={handleChange} value={formData.industry} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier focus:outline-none focus:border-cyan transition-colors appearance-none cursor-pointer">
+                <select required name="invoices" onChange={handleChange} value={formData.invoices} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier focus:outline-none focus:border-cyan transition-colors appearance-none cursor-pointer">
                   <option value="">Select Volume</option>
                   <option value="Under 20">Under 20</option>
                   <option value="20-50">20–50</option>
@@ -98,8 +97,8 @@ export default function Contact() {
               <textarea rows={4} name="message" onChange={handleChange} value={formData.message} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors resize-none" placeholder="Optional details..."></textarea>
             </div>
 
-            <button type="submit" className="w-full mt-4 bg-cyan text-vault py-4 rounded-xl font-heading font-bold text-lg hover:shadow-[0_0_20px_rgba(0,194,203,0.3)] transition-all duration-300 click-pop">
-              Request My Free Audit
+            <button type="submit" disabled={loading} className="w-full mt-4 bg-cyan text-vault py-4 rounded-xl font-heading font-bold text-lg hover:shadow-[0_0_20px_rgba(0,194,203,0.3)] transition-all duration-300 click-pop">
+              {loading ? 'Sending...' : 'Request My Free Audit'}
             </button>
           </form>
         )}
