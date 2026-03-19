@@ -56,17 +56,17 @@ export default function Contact() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="font-data text-xs uppercase tracking-widest text-slate">Full Name *</label>
-                <input required type="text" className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors" placeholder="John Doe" />
+                <input required type="text" name="name" onChange={handleChange} value={formData.name} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors" placeholder="John Doe" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="font-data text-xs uppercase tracking-widest text-slate">Business Email *</label>
-                <input required type="email" className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors" placeholder="john@company.com" />
+                <input required type="email" name="email" onChange={handleChange} value={formData.email} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors" placeholder="john@company.com" />
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
               <label className="font-data text-xs uppercase tracking-widest text-slate">Business Name *</label>
-              <input required type="text" className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors" placeholder="Company Ltd" />
+              <input required type="text" name="business" onChange={handleChange} value={formData.business} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors" placeholder="Company Ltd" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -95,7 +95,7 @@ export default function Contact() {
 
             <div className="flex flex-col gap-2">
               <label className="font-data text-xs uppercase tracking-widest text-slate">Anything else we should know?</label>
-              <textarea rows={4} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors resize-none" placeholder="Optional details..."></textarea>
+              <textarea rows={4} name="message" onChange={handleChange} value={formData.message} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier placeholder-slate/40 focus:outline-none focus:border-cyan transition-colors resize-none" placeholder="Optional details..."></textarea>
             </div>
 
             <button type="submit" className="w-full mt-4 bg-cyan text-vault py-4 rounded-xl font-heading font-bold text-lg hover:shadow-[0_0_20px_rgba(0,194,203,0.3)] transition-all duration-300 click-pop">
