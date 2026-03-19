@@ -3,9 +3,29 @@ import React, { useState } from 'react';
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    name: '', email: '', business: '', industry: '', invoices: '', message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) setSubmitted(true);
+    } catch (error) {
+      console.error('Failed to send:', error);
+    }
+    setLoading(false);
   };
 
   return (
