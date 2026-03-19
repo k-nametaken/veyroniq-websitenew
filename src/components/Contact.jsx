@@ -72,7 +72,7 @@ export default function Contact() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="font-data text-xs uppercase tracking-widest text-slate">Industry *</label>
-                <select required className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier focus:outline-none focus:border-cyan transition-colors appearance-none cursor-pointer">
+                <select required name="industry" onChange={handleChange} value={formData.industry} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier focus:outline-none focus:border-cyan transition-colors appearance-none cursor-pointer">
                   <option value="">Select Industry</option>
                   <option value="Construction SMEs">Construction SMEs</option>
                   <option value="Letting Agencies">Letting Agencies</option>
@@ -83,7 +83,7 @@ export default function Contact() {
               </div>
               <div className="flex flex-col gap-2">
                 <label className="font-data text-xs uppercase tracking-widest text-slate">Invoices per month *</label>
-                <select required className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier focus:outline-none focus:border-cyan transition-colors appearance-none cursor-pointer">
+                <select required name="industry" onChange={handleChange} value={formData.industry} className="bg-vault border border-wire rounded-xl px-4 py-3 text-glacier focus:outline-none focus:border-cyan transition-colors appearance-none cursor-pointer">
                   <option value="">Select Volume</option>
                   <option value="Under 20">Under 20</option>
                   <option value="20-50">20–50</option>
